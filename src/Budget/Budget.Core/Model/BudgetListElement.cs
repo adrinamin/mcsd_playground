@@ -2,7 +2,7 @@
 
 namespace Budget.Core.Model
 {
-    class BudgetListElement : IBudgetListElement
+    class BudgetListElement
     {
         public string BudgetName { get; set; }
         public int CurrentAmount { get; set; }

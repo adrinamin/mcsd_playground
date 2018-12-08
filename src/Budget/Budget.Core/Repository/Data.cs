@@ -7,10 +7,10 @@ namespace Budget.Core.Repository
 {
     class Data
     {
-        public IEnumerable<IBudgetListElement> CreateBudgetList()
+        public IEnumerable<BudgetListElement> CreateBudgetList()
         {
             var budgetList = new List<BudgetListElement>();
-            budgetList.Add(new BudgetListElement);
+            budgetList.Add(new BudgetListElement());
             return budgetList;
         }
     }

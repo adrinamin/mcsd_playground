@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Budget.Core.Model
 {
-    class BudgetsModel : IBudgetsModel
+    class BudgetsModel
     {
-        public IEnumerable<IBudgetListElement> BudgetListElements { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEnumerable<BudgetListElement> BudgetListElements { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
