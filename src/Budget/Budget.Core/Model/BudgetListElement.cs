@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Budget.Core.Model
+﻿namespace Budget.Core.Model
 {
-    class BudgetListElement
+    public class BudgetListElement
     {
         public string BudgetName { get; set; }
         public int CurrentAmount { get; set; }
