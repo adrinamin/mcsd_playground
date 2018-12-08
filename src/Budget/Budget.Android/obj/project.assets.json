@@ -258,6 +258,19 @@
         "build": {
           "build/MonoAndroid81/Xamarin.Android.Support.Vector.Drawable.targets": {}
         }
+      },
+      "Budget.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MvvmCross": "6.2.2"
+        },
+        "compile": {
+          "bin/placeholder/Budget.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Budget.Core.dll": {}
+        }
       }
     }
   },
@@ -522,10 +535,16 @@
         "xamarin.android.support.vector.drawable.27.0.2.1.nupkg.sha512",
         "xamarin.android.support.vector.drawable.nuspec"
       ]
+    },
+    "Budget.Core/1.0.0": {
+      "type": "project",
+      "path": "../Budget.Core/Budget.Core.csproj",
+      "msbuildProject": "../Budget.Core/Budget.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
+      "Budget.Core >= 1.0.0",
       "MvvmCross >= 6.2.2",
       "Xamarin.Android.Support.Design >= 27.0.2.1"
     ]
@@ -557,7 +576,11 @@
       },
       "frameworks": {
         "monoandroid81": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\adrin\\Documents\\test_ing\\src\\Budget\\Budget.Core\\Budget.Core.csproj": {
+              "projectPath": "C:\\Users\\adrin\\Documents\\test_ing\\src\\Budget\\Budget.Core\\Budget.Core.csproj"
+            }
+          }
         }
       }
     },

@@ -1,6 +1,8 @@
 C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\bin\Debug\netstandard2.0\Budget.Core.deps.json
 C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\bin\Debug\netstandard2.0\Budget.Core.dll
-C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\obj\Debug\netstandard2.0\Budget.Core.csprojAssemblyReference.cache
+C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\bin\Debug\netstandard2.0\Budget.Core.pdb
 C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\obj\Debug\netstandard2.0\Budget.Core.csproj.CoreCompileInputs.cache
 C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\obj\Debug\netstandard2.0\Budget.Core.AssemblyInfoInputs.cache
 C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\obj\Debug\netstandard2.0\Budget.Core.AssemblyInfo.cs
+C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\obj\Debug\netstandard2.0\Budget.Core.dll
+C:\Users\adrin\Documents\test_ing\src\Budget\Budget.Core\obj\Debug\netstandard2.0\Budget.Core.pdb
