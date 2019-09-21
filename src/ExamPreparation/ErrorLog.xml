@@ -1,0 +1,30 @@
+<E2ETraceEvent xmlns="http://schemas.microsoft.com/2004/06/E2ETraceEvent">
+    <System xmlns="http://schemas.microsoft.com/2004/06/windows/eventlog/system">
+        <EventID>2148734208</EventID>
+        <Type>3</Type>
+        <SubType Name="Error">0</SubType>
+        <Level>2</Level>
+        <TimeCreated SystemTime="2019-09-21T08:45:22.2007622Z" />
+        <Source Name="execution took too long: 6,017.437 seconds" />
+        <Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+        <Execution ProcessName="dotnet" ProcessID="23480" ThreadID="1" />
+        <Channel/>
+        <Computer>DESKTOP-N8BUPNI</Computer>
+    </System>
+    <ApplicationData></ApplicationData>
+</E2ETraceEvent>
+<E2ETraceEvent xmlns="http://schemas.microsoft.com/2004/06/E2ETraceEvent">
+    <System xmlns="http://schemas.microsoft.com/2004/06/windows/eventlog/system">
+        <EventID>2148734208</EventID>
+        <Type>3</Type>
+        <SubType Name="Error">0</SubType>
+        <Level>2</Level>
+        <TimeCreated SystemTime="2019-09-21T08:48:38.6233845Z" />
+        <Source Name="execution took too long: 6,021.148 seconds" />
+        <Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+        <Execution ProcessName="dotnet" ProcessID="9300" ThreadID="1" />
+        <Channel/>
+        <Computer>DESKTOP-N8BUPNI</Computer>
+    </System>
+    <ApplicationData></ApplicationData>
+</E2ETraceEvent>

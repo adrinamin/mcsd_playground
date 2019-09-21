@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace PerformIoOperation
@@ -12,6 +14,8 @@ namespace PerformIoOperation
             GetDriveInfo();
             GetDirectoryInfo();
             MovingDirectories();
+            UsingLists();
+            WritingIntoFile();
         }
 
         // A DriveInfo object doesn’t have any specific
@@ -45,13 +49,13 @@ namespace PerformIoOperation
             // Delete directory
             if (Directory.Exists(@"\ProgrammingInCSharp\Directory"))
             {
-                Debug.WriteLine(DateTime.Now + ", Deleting directory", "Info");
+                Debug.WriteLine("\n " + DateTime.Now + ", Deleting directory", "Info");
                 Directory.Delete(@"\ProgrammingInCSharp\Directory");
             }
 
             if (directoryInfo.Exists)
             {
-                Debug.WriteLine(DateTime.Now + ", Deleting directory " + directory.Name, "Info");
+                Debug.WriteLine("\n " + DateTime.Now + ", Deleting directory " + directory.Name, "Info");
                 directoryInfo.Delete();
             }
         }
@@ -82,7 +86,74 @@ namespace PerformIoOperation
             {
                 Debug.WriteLine(stringBuilder.Append(DateTime.Now + ", Could not move direcory " + directoryInfo), "Warning");
             }
+        }
 
+        private static void WritingIntoFile()
+        {
+            var stringBuilder = new StringBuilder();
+            const string path = @"\programming\data";
+            const string fileName = "storage.txt";
+            var directory = new DirectoryInfo(path);
+            directory.Create();
+            Debug.WriteLine(stringBuilder.Append(DateTime.Now + ": Creating directoy " + directory + "\n "), "Info");
+            string fullPath = Path.Combine(path, fileName);
+            var fileInfo = new FileInfo(fullPath);
+            if (!fileInfo.Exists)
+            {
+                using (var streamWriter = File.CreateText(fullPath))
+                {
+                    const string value = "Hello my name is....";
+                    Debug.WriteLine(stringBuilder.Append(DateTime.Now + ": Writing stream " + value + " into file " + fileName + "\n "), "Info");
+                    streamWriter.WriteLine(value);
+                    Debug.WriteLine(stringBuilder.Append(DateTime.Now + ": Close the current StreamWriter object" + "\n "), "Info");
+                    streamWriter.Close();
+                }
+            }
+            else
+            {
+                Debug.WriteLine(stringBuilder.Append(DateTime.Now + ": File already exists." + "\n "), "Info");
+            }
+
+            ReadingFromFile(fullPath);
+        }
+
+        private static void ReadingFromFile(string path)
+        {
+            var stringBuilder = new StringBuilder();
+            using (StreamReader streamReader = new StreamReader(path))
+            {
+                string data = string.Empty;
+                while ((data = streamReader.ReadLine()) != null)
+                {
+                    Debug.WriteLine(stringBuilder.Append(DateTime.Now + ": StreamReader output: " + "\n "), "Info");
+                    Debug.WriteLine(stringBuilder.Append(DateTime.Now + ": " + data + "\n "), "Info");
+                }
+                streamReader.Close();
+            }
+        }
+
+        private static void UsingLists()
+        {
+            var stringBuilder = new StringBuilder();
+            List<int> list = new List<int>{
+              30,
+              40,
+              30,
+              20,
+              80,
+              70,
+              70,
+              60,
+              50
+            };
+
+            var result = from i in list where i > 60 select i;
+
+            Debug.WriteLine(stringBuilder.Append(" " + DateTime.Now + " These are the elements that match the condition:"), "Info");
+            foreach (var item in result)
+            {
+                Debug.WriteLine(stringBuilder.Append("\n " + DateTime.Now + ", Number: " + item.ToString()), "Info");
+            }
         }
     }
 }

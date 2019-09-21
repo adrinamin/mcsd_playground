@@ -1,0 +1,15 @@
+<E2ETraceEvent xmlns="http://schemas.microsoft.com/2004/06/E2ETraceEvent">
+    <System xmlns="http://schemas.microsoft.com/2004/06/windows/eventlog/system">
+        <EventID>0</EventID>
+        <Type>3</Type>
+        <SubType Name="Information">0</SubType>
+        <Level>8</Level>
+        <TimeCreated SystemTime="2019-09-21T10:48:38.7293029+02:00" />
+        <Source Name="Trace" />
+        <Correlation ActivityID="{00000000-0000-0000-0000-000000000000}" />
+        <Execution ProcessName="dotnet" ProcessID="9300" ThreadID="1" />
+        <Channel/>
+        <Computer>DESKTOP-N8BUPNI</Computer>
+    </System>
+    <ApplicationData>execution took too long: 6,021.148 seconds</ApplicationData>
+</E2ETraceEvent>
