@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 
 namespace ExamPreparation
@@ -16,7 +19,7 @@ namespace ExamPreparation
             Thread.Sleep(delay);
         }
 
-        private static void LogLongExecution(string msg)
+        private static void Log(string msg)
         {
             if (_execTimer.Elapsed.Seconds > 2)
             {
@@ -31,19 +34,19 @@ namespace ExamPreparation
             try
             {
                 Delay(10);
-                LogLongExecution("execution 10 milliseconds");
+                Log("execution 10 milliseconds");
                 Delay(3000);
-                LogLongExecution("execution 6000 milliseconds");
+                Log("execution 6000 milliseconds");
                 Delay(3000);
-                LogLongExecution("execution 6000 milliseconds");
+                Log("execution 6000 milliseconds");
                 Delay(4000);
-                LogLongExecution("execution 6000 milliseconds");
+                Log("execution 6000 milliseconds");
             }
             catch (System.Exception ex)
             {
                 using (XmlWriterTraceListener xmlLogger = new XmlWriterTraceListener("./ErrorLog.xml"))
                 {
-                    xmlLogger.TraceEvent(new TraceEventCache(),ex.Message,TraceEventType.Error,ex.HResult);
+                    xmlLogger.TraceEvent(new TraceEventCache(), ex.Message, TraceEventType.Error, ex.HResult);
                     xmlLogger.Flush();
                 }
 
@@ -63,17 +66,18 @@ namespace ExamPreparation
             Console.WriteLine(DisplayTemperature(date, temparature));
             GetTypesInAssembly();
             MyArraListCast();
+            AddInfoToFileEncrypted("./testFile.txt", "Hello my name is ");
         }
 
         private static void MyArraListCast()
         {
             ArrayList arrayList = new ArrayList();
-            int var1 = 10;
-            int var2;
-            arrayList.Add(var1);
+            int item1 = 100;
+            int item2;
+            arrayList.Add(item1);
             // var2 = (int)arrayList[0];
-            // var2 = Convert.ToInt32(arrayList[0]);
-            Console.WriteLine("Setting var2 with the value of var1: {0}", var2);
+            item2 = Convert.ToInt32(arrayList[0]);
+            Console.WriteLine("Setting item2 with the value of item1: {0}", item2);
         }
 
         private static void LinqTest()
@@ -95,14 +99,14 @@ namespace ExamPreparation
             People people = new People();
             Person person = new Person
             {
-                Name = "Adrin",
-                Age = 29
+                Name = "Joe",
+                Age = 99
             };
 
             Person person2 = new Person
             {
-                Name = "Leonie",
-                Age = 23
+                Name = "Mike",
+                Age = 93
             };
 
             people.AddAscendingByAge(person);
@@ -133,6 +137,39 @@ namespace ExamPreparation
                 Debug.Indent();
                 Debug.WriteLine("The base type: {0}", type.BaseType);
                 Debug.Unindent();
+            }
+        }
+
+        private static void AddInfoToFileEncrypted(string fileName, string information)
+        {
+            try
+            {
+                UnicodeEncoding unicodeEncoding = new UnicodeEncoding();
+                byte[] encryptedData;
+                byte[] decryptedData;
+
+                var convertedInformation = unicodeEncoding.GetBytes(information);
+
+                using (RSACryptoServiceProvider rSACryptoServiceProvider = new RSACryptoServiceProvider())
+                {
+
+                    encryptedData = rSACryptoServiceProvider.Encrypt(convertedInformation, false);
+
+                    using (var streamWriter = File.CreateText(fileName))
+                    {
+                        streamWriter.Write(encryptedData);
+                    }
+
+                    // var dataFromFile = File.ReadAllBytes(fileName);
+                    decryptedData = rSACryptoServiceProvider.Decrypt(encryptedData, false);
+
+                    Console.WriteLine("Your decrypted data: {0} {1}", unicodeEncoding.GetString(decryptedData), "Joe");
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("Encryption failed.");
+                throw;
             }
         }
     }
