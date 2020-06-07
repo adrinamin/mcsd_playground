@@ -1,36 +1,57 @@
-""" reorder_list.py module for 
+""" reorder_list.py module for permutation of any array.
 
 Usage:
 
-    python3 reorder_list.py
+    python3 reorder_list.py <random_array> <permutation_array>
 
 """
-
 import sys
 
-def permutate(list: list, permutation: list):
+
+def permutate(array: list, permutation: list):
     """ permutate a fixed array with a given permutation list
     
     Args:
+        array: An array of random elements
+        permutation: The permutation of the given array
 
     Returns:
     
     """
-    # array = input('please provide a random sequence of elements: ')
-    array = ["a","b","c","d"]
-    permutation = [1,2,0,3]
-    swapped_array = []
-    counter = 0
+    _swapped_array = []
+    _counter = 0
     for i in permutation:
-        if counter == i or i in swapped_array:
-            counter += 1
+
+        if _counter == i or i in _swapped_array:
+            _counter += 1
             continue
-        temp = i
-        swap = array[temp]
-        sub = array[counter]
-        array[temp] = sub
-        array[counter] = swap
-        swapped_array.append(counter)
-        counter += 1
+
+        _temp = i-1
+        _swap = array[_temp]
+        _sub = array[_counter]
+        array[_temp] = _sub
+        array[_counter] = _swap
+        _swapped_array.append(_counter)
+        _counter += 1
     
-    print(array)
+    return array
+
+
+def main(char_array, permutation):
+    """ Runs the permutation for the given parameter
+        and prints the returned permutated array
+    
+    Args:
+        array: An array of random elements
+        permutation: The permutation of the given array
+    
+    """
+    _list = list(char_array.split(","))
+    _permutation = list(map(int, permutation.split(",")))
+    _permuatation_array = permutate(_list, _permutation)
+
+    print(_permuatation_array)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2])
