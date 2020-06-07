@@ -1,3 +1,11 @@
+""" some basics with numpy
+
+Usage:
+
+    python3 basics.py
+
+"""
+
 import numpy as np
 
 
