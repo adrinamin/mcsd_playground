@@ -1,8 +1,11 @@
-import unittest
-from tests.test_numbers_finder import NumbersFinderTest
+""" runner.py module for running the test suite
+
+Usage:
+    python3 runner.py
 
 """
-running the test
-"""
-suite = unittest.TestLoader().loadTestsFromTestCase(NumbersFinderTest)
+import unittest
+
+# looks for all test files in the tests folder
+suite = unittest.TestLoader().discover(".","test_*.py")
 unittest.TextTestRunner(verbosity=2).run(suite)
