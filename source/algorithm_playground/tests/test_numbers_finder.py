@@ -24,6 +24,7 @@ class NumbersFinderTest(unittest.TestCase):
         result = self.finder.find_addition_of_two_numbers_in_list(list_of_numbers, self.k_value)
         self.assertFalse(result)
 
+
 # for running this test file separately
 if __name__ == '__main__':
     unittest.main()
