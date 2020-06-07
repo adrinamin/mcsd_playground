@@ -1,5 +1,5 @@
 import unittest
-import numbers_finder
+import finder.numbers_finder as numbers_finder
 
 
 class NumbersFinderTest(unittest.TestCase):

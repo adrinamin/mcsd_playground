@@ -1,5 +1,5 @@
 import unittest
-from test_numbers_finder import NumbersFinderTest
+from tests.test_numbers_finder import NumbersFinderTest
 
 """
 running the test
