@@ -1,12 +1,14 @@
-""" permutation.py module for 
+""" reorder_list.py module for 
 
 Usage:
 
-    python3 permutation.py
+    python3 reorder_list.py
 
 """
 
-def permutate():
+import sys
+
+def permutate(list: list, permutation: list):
     """ permutate a fixed array with a given permutation list
     
     Args:
@@ -32,11 +34,3 @@ def permutate():
         counter += 1
     
     print(array)
-
-
-def main():
-    permutate()
-
-
-if __name__ == "__main__":
-    main()
