@@ -1,4 +1,4 @@
-""" daily coding problem 206
+""" permutation.py module for 
 
 Usage:
 
