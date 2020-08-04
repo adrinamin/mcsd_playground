@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include "Person.h"
+#include "Tweeter.h"
+#include "status.h"
 
 using namespace std;
 
@@ -21,6 +23,10 @@ int main()
     // beware of following issue:
     // https://stackoverflow.com/questions/15712821/c-error-undefined-reference-to-classfunction
     Person person(firstname,lastname,age);
+    {
+        Tweeter tweeter("Someone","Else",20,"@whoever");
+        std::string name2 = tweeter.getName();
+    }
 
     std::cout << "Hello " << firstname << std::endl;
 
@@ -33,6 +39,14 @@ int main()
     // safe casting 
     // -> telling compiler that loosing data is okay.
     i5 = static_cast<int>(dvalue);
+
+    // using enums
+    FileError fe = FileError::notfound;
+    fe = FileError::ok;
+
+    NetworkError ne = NetworkError::notfound;
+    ne = NetworkError::ok;
+
 
     return 0;
 }
