@@ -36,6 +36,9 @@ int main()
     int i5 = 1;
     double dvalue = 2.5;
 
+    string sign = value1 > 2.2? "bigger than 2.2" : "smaller than 2.2";
+    std::cout << sign << std::endl;
+
     // safe casting 
     // -> telling compiler that loosing data is okay.
     i5 = static_cast<int>(dvalue);
@@ -46,7 +49,6 @@ int main()
 
     NetworkError ne = NetworkError::notfound;
     ne = NetworkError::ok;
-
 
     return 0;
 }

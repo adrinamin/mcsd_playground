@@ -1,4 +1,3 @@
-#pragma once
 #include "Tweeter.h"
 #include <iostream>
 
