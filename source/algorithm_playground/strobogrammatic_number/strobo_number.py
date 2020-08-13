@@ -50,6 +50,7 @@ def numdef(digits: int, length: int):
 def main(digits: int):
     result = find_all_strobogrammatic_numbers(digits)
     print("number of strobogrammatic numbers: ", len(result))
+    print(result)
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    main(int(sys.argv[1]))
