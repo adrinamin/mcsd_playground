@@ -20,7 +20,7 @@ Person::Person(std::string first, std::string last, int age, int salary)
 
 Person::~Person()
 {
-    std::cout << "constructing instance: " << firstname << " " << lastname << std::endl;
+    std::cout << "destructing instance: " << firstname << " " << lastname << std::endl;
 }
 
 // Person::Person(Person const & p)
@@ -34,7 +34,7 @@ Person::~Person()
 //     return *this;
 // }
 
-std::string Person::getName()
+std::string Person::getName() const
 {
     return firstname + " " + lastname;
 }

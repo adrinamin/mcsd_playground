@@ -11,3 +11,9 @@ Tweeter::~Tweeter()
 {
     std::cout << "destructing tweeter" << twitterhandle << std::endl;
 }
+
+std::string Tweeter::GetName() const
+{
+    // if sth is private then it is not accessable from derived classed.
+    return Person::getName() + " " + twitterhandle;
+}

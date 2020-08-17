@@ -9,4 +9,5 @@ private:
 public:
     Tweeter(std::string first, std::string last, int age, std::string handle);
     ~Tweeter();
+    std::string GetName() const;
 };

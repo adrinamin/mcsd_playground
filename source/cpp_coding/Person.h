@@ -21,12 +21,13 @@ public:
     Person();
     Person(std::string first, std::string last, int age);
     Person(std::string first, std::string last, int age, int salary);
-    ~Person();
+    // if you have one virtual function, make the destructor also virtual!
+    virtual ~Person();
     // copy ctor and assignment is for memory safety to avoid deletion of something that is already deleted
     // we don't need those with smart pointers
     // Person(Person const & p); // copy constructor
     // Person& operator=(const Person& p); //copy assignment
-    std::string getName();
+    virtual std::string getName() const;
     int getSalary() const {return salary;}
     int GetAge() const {return age;}
     void AddResource();
