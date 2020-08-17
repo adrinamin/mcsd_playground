@@ -23,6 +23,17 @@ Person::~Person()
     std::cout << "constructing instance: " << firstname << " " << lastname << std::endl;
 }
 
+// Person::Person(Person const & p)
+// {
+//     pResource = new Resource(p.pResource->GetName());
+// }
+
+// Person& Person::operator=(const Person& p)
+// {
+//     pResource = new Resource(p.pResource->GetName());
+//     return *this;
+// }
+
 std::string Person::getName()
 {
     return firstname + " " + lastname;
@@ -48,4 +59,10 @@ bool operator<(int i, Person const& p)
     // return i < p.GetAge();
     // if you want to avoid the GetAge method you can declare this operator as 'friend'
     return i < p.age;
+}
+
+void Person::AddResource()
+{
+    pResource.reset();
+    pResource = std::make_shared<Resource>("Resource for " + getName());
 }

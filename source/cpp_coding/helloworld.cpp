@@ -6,6 +6,7 @@
 #include "status.h"
 #include "Utility.h"
 #include "Accum.h"
+#include "Resource.h"
 
 using namespace std;
 
@@ -23,6 +24,56 @@ int DoubleIt(int const& x)
 
 int main()
 {
+    // local scope
+    {
+        Resource localResource("local");
+        string localString = localResource.GetName();
+    }
+
+    // create resource with new
+    // free store
+    Resource* pResource = new Resource("created with new");
+    string newString = pResource->GetName();
+    int j = 3;
+    delete pResource;
+    pResource = nullptr;
+
+    // manual memory management
+    // if you got a pointer, from new, you have to keep track of it
+    // * at some point you must call delete
+    // what happens if someone copies it?
+    // what happens if the local variable goes out of scope?
+    // manual memory management is hard with a variety of mistakes to make
+    // * delete too soon
+    // * delete twice
+    // * never delete
+
+    // Rule of Three
+    // Destructor deletes what may have been created with new
+    // Copy Constructor uses new to initialize from existing value
+    // Copy assignment operator deletes, then uses new to initialize
+
+    // became rule of five
+    // move ctor
+    // move assignement operator
+
+    // best: rule of zero
+    // design your class not to need any of these
+    // written by you, anyway
+
+    // easy memory management
+    // std library smart pointers
+    // unique_ptr -> noncopyable
+    // shared_ptr -> reference counted
+    // weak_ptr -> lets you "peek" at a shared_ptr without bumping the reference count
+
+    {
+        Person Whatev("what","ev",345);
+        Whatev.AddResource();
+        std::string s1 = Whatev.GetResourceName();
+        Whatev.AddResource();
+    }
+
     // references
     int a = 3;
     std::cout << "a is " << a << std::endl;
@@ -66,7 +117,7 @@ int main()
 
     // int& ncri = ci -> not possible
 
-    int j = 10;
+    int j1 = 10;
     int DoubleJ = DoubleIt(j);
     int DoubleTen = DoubleIt(10);
 
@@ -85,6 +136,26 @@ int main()
     // int const * cpI
     // Then you can't use it to change the calue of the target
     // *cpI = 2;
+
+    // references and pointers provide another way to access memory (indirection)
+    // * references have simpler syntax
+    // const keeps your programs correct
+    // * functions that take literal values need to be aware of const
+    // * const-correctness spreads through your code.
+    // * If you take a reference for speed, you should take a const reference
+    // * Many operator overloads, constructors and other "cononical" functions take const references
+    int* pI = &i;
+
+    // pointer has type safety
+    int const * pcI = pI; // pointer to a const
+    pcI = &j;
+    j = *pcI;
+
+    int * const cpI = pI; // const pointer
+    *cpI = 4;
+
+    int const * const crazy = pI; // const pointer to a const
+    j = *crazy;
 
     std::cout << "max of 99 and 100 is " << max2(99,100) << std::endl;
     std::string firstname;
