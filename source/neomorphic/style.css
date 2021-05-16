@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300&display=swap');
+
+body {
+  background: #ecf0f3;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.container {
+  box-sizing: border-box;
+  width: 400px;
+  height: 550px;
+  border-radius: 50px;
+  background: #ecf0f3;
+  box-shadow: 12px 12px 20px #cbced1, -12px -12px 20px white;
+
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  background: url(/degiro.png) no-repeat;
+  background-size: contain;
+  margin: auto;
+  margin-top: 26px;
+}
+
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+
+
+label,
+input,
+button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+label {
+  margin-bottom: 4px;
+  margin-left: 10px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+button {
+  width: 273px;
+  margin: auto;
+  margin-top: 33px;
+  background: #ecf0f3;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #00a6ff;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+button:hover {
+  transition: 1s;
+  box-shadow: inset 3px 3px 3px #cbced1, inset -3px -3px 3px white;
+}
